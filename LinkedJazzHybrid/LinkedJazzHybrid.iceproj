@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>51ad52f1-ba2b-44ac-9338-181843b00794</ProjectGuid>
+    <ProjectTypeGuids>{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}</ProjectTypeGuids>
+    <AppIdentifier>com.telerik.LinkedJazzHybrid</AppIdentifier>
+    <ProjectName>LinkedJazzHybrid</ProjectName>
+    <IsRunnable>true</IsRunnable>
+    <FrameworkVersion>3.0.0</FrameworkVersion>
+    <AndroidPermissions>android.permission.CAMERA;android.permission.VIBRATE;android.permission.ACCESS_COARSE_LOCATION;android.permission.ACCESS_FINE_LOCATION;android.permission.ACCESS_LOCATION_EXTRA_COMMANDS;android.permission.READ_PHONE_STATE;android.permission.INTERNET;android.permission.RECEIVE_SMS;android.permission.RECORD_AUDIO;android.permission.MODIFY_AUDIO_SETTINGS;android.permission.READ_CONTACTS;android.permission.WRITE_CONTACTS;android.permission.WRITE_EXTERNAL_STORAGE;android.permission.ACCESS_NETWORK_STATE;android.permission.ACCOUNT_MANAGER;android.permission.GET_ACCOUNTS;android.permission.MANAGE_ACCOUNTS;android.permission.BROADCAST_STICKY</AndroidPermissions>
+    <CorePlugins>org.apache.cordova.core.device;org.apache.cordova.core.AudioHandler;org.apache.cordova.core.battery-status;org.apache.cordova.core.camera;org.apache.cordova.core.console;org.apache.cordova.core.contacts;org.apache.cordova.core.device;org.apache.cordova.core.device-motion;org.apache.cordova.core.device-orientation;org.apache.cordova.core.dialogs;org.apache.cordova.core.file;org.apache.cordova.core.file-transfer;org.apache.cordova.core.geolocation;org.apache.cordova.core.globalization;org.apache.cordova.core.inappbrowser;org.apache.cordova.core.media-capture;org.apache.cordova.core.network-information;org.apache.cordova.core.splashscreen;org.apache.cordova.core.vibration</CorePlugins>
+    <DeviceOrientations>Portrait;Landscape</DeviceOrientations>
+    <iOSStatusBarStyle>Default</iOSStatusBarStyle>
+    <AndroidHardwareAcceleration>false</AndroidHardwareAcceleration>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\$(DevicePlatform)\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\$(DevicePlatform)\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="App_Resources\iOS\icon.png" />
+    <Resource Include="App_Resources\iOS\icon@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-72.png" />
+    <Resource Include="App_Resources\iOS\icon-72@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small-50.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small-50@2x.png" />
+    <Resource Include="App_Resources\iOS\Default.png" />
+    <Resource Include="App_Resources\iOS\Default@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-568h@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-Portrait.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape.png" />
+    <Resource Include="App_Resources\iOS\Default-Portrait@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-40.png" />
+    <Resource Include="App_Resources\iOS\icon-40@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-60.png" />
+    <Resource Include="App_Resources\iOS\icon-60@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-76.png" />
+    <Resource Include="App_Resources\iOS\icon-76@2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-mdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-nodpi\splashscreen.9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\abstracts.txt" />
+    <Content Include="data\triples.txt" />
+    <Content Include="index.html" />
+    <Content Include="css\index.css" />
+    <Content Include="js\index.js" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\cordova.png" />
+    <Content Include="cordova.ios.js">
+      <Platform>iOS</Platform>
+      <TargetName>cordova.js</TargetName>
+    </Content>
+    <Content Include="cordova.android.js">
+      <Platform>Android</Platform>
+      <TargetName>cordova.js</TargetName>
+    </Content>
+    <Content Include="kendo\js\jquery.min.js" />
+    <Content Include="kendo\js\kendo.all.min.js" />
+    <Content Include="kendo\js\kendo.mobile.min.js" />
+    <Content Include="kendo\styles\default\editor.png" />
+    <Content Include="kendo\styles\default\imagebrowser.png" />
+    <Content Include="kendo\styles\default\loading-image.gif" />
+    <Content Include="kendo\styles\default\loading.gif" />
+    <Content Include="kendo\styles\default\loading_2x.gif" />
+    <Content Include="kendo\styles\default\slider-h.gif" />
+    <Content Include="kendo\styles\default\slider-v.gif" />
+    <Content Include="kendo\styles\default\sprite.png" />
+    <Content Include="kendo\styles\default\sprite_2x.png" />
+    <Content Include="kendo\styles\images\back.png" />
+    <Content Include="kendo\styles\images\KendoUI.ttf" />
+    <Content Include="kendo\styles\images\KendoUI.woff" />
+    <Content Include="kendo\styles\images\wp8_icons.png" />
+    <Content Include="kendo\styles\images\wp8_inverseicons.png" />
+    <Content Include="kendo\styles\kendo.common.min.css" />
+    <Content Include="kendo\styles\kendo.default.min.css" />
+    <Content Include="kendo\styles\kendo.mobile.all.min.css" />
+    <Content Include="kendo\styles\textures\brushed-metal.png" />
+    <Content Include="kendo\styles\textures\dots1.png" />
+    <Content Include="kendo\styles\textures\dots10.png" />
+    <Content Include="kendo\styles\textures\dots11.png" />
+    <Content Include="kendo\styles\textures\dots12.png" />
+    <Content Include="kendo\styles\textures\dots13.png" />
+    <Content Include="kendo\styles\textures\dots2.png" />
+    <Content Include="kendo\styles\textures\dots3.png" />
+    <Content Include="kendo\styles\textures\dots4.png" />
+    <Content Include="kendo\styles\textures\dots5.png" />
+    <Content Include="kendo\styles\textures\dots6.png" />
+    <Content Include="kendo\styles\textures\dots7.png" />
+    <Content Include="kendo\styles\textures\dots8.png" />
+    <Content Include="kendo\styles\textures\dots9.png" />
+    <Content Include="kendo\styles\textures\glass-lighter.png" />
+    <Content Include="kendo\styles\textures\glass.png" />
+    <Content Include="kendo\styles\textures\highlight.png" />
+    <Content Include="kendo\styles\textures\hsv-gradient.png" />
+    <Content Include="kendo\styles\textures\hue.png" />
+    <Content Include="kendo\styles\textures\leather1.png" />
+    <Content Include="kendo\styles\textures\leather2.png" />
+    <Content Include="kendo\styles\textures\noise.png" />
+    <Content Include="kendo\styles\textures\stripe1.png" />
+    <Content Include="kendo\styles\textures\stripe2.png" />
+    <Content Include="kendo\styles\textures\stripe3.png" />
+    <Content Include="kendo\styles\textures\stripe4.png" />
+    <Content Include="kendo\styles\textures\stripe5.png" />
+    <Content Include="kendo\styles\textures\stripe6.png" />
+    <Content Include="kendo\styles\textures\transparency.png" />
+    <Content Include="kendo\styles\textures\transtexture.png" />
+    <Content Include="Linked Jazz.htm" />
+    <Content Include="Linked Jazz_files\Abbey_Lincoln.png" />
+    <Content Include="Linked Jazz_files\Alan_Dawson.png" />
+    <Content Include="Linked Jazz_files\Andy_Kirk.png" />
+    <Content Include="Linked Jazz_files\Artie_Shaw.png" />
+    <Content Include="Linked Jazz_files\Art_Blakey.png" />
+    <Content Include="Linked Jazz_files\Art_Farmer.png" />
+    <Content Include="Linked Jazz_files\Art_Tatum.png" />
+    <Content Include="Linked Jazz_files\Barney_Bigard.png" />
+    <Content Include="Linked Jazz_files\Bennie_Moten.png" />
+    <Content Include="Linked Jazz_files\Benny_Carter.png" />
+    <Content Include="Linked Jazz_files\Benny_Golson.png" />
+    <Content Include="Linked Jazz_files\Benny_Goodman.png" />
+    <Content Include="Linked Jazz_files\Benny_Powell.png" />
+    <Content Include="Linked Jazz_files\Benny_Waters.png" />
+    <Content Include="Linked Jazz_files\Ben_Webster.png" />
+    <Content Include="Linked Jazz_files\Betty_Carter.png" />
+    <Content Include="Linked Jazz_files\Billie_Holiday.png" />
+    <Content Include="Linked Jazz_files\Billy_Eckstine.png" />
+    <Content Include="Linked Jazz_files\Billy_Higgins.png" />
+    <Content Include="Linked Jazz_files\Billy_Strayhorn.png" />
+    <Content Include="Linked Jazz_files\Billy_Taylor_jazz_bassist.png" />
+    <Content Include="Linked Jazz_files\Bill_Evans.png" />
+    <Content Include="Linked Jazz_files\Bill_Johnson_reed_player.png" />
+    <Content Include="Linked Jazz_files\Bing_Crosby.png" />
+    <Content Include="Linked Jazz_files\Bob_Haggart.png" />
+    <Content Include="Linked Jazz_files\Buck_Clayton.png" />
+    <Content Include="Linked Jazz_files\Buddy_DeFranco.png" />
+    <Content Include="Linked Jazz_files\Buddy_Rich.png" />
+    <Content Include="Linked Jazz_files\Buddy_Tate_musician.png" />
+    <Content Include="Linked Jazz_files\Budd_Johnson.png" />
+    <Content Include="Linked Jazz_files\Bud_Powell.png" />
+    <Content Include="Linked Jazz_files\Buster_Williams.png" />
+    <Content Include="Linked Jazz_files\Cab_Calloway.png" />
+    <Content Include="Linked Jazz_files\Carmen_McRae.png" />
+    <Content Include="Linked Jazz_files\Charles_Mingus.png" />
+    <Content Include="Linked Jazz_files\Charlie_Barnet.png" />
+    <Content Include="Linked Jazz_files\Charlie_Christian.png" />
+    <Content Include="Linked Jazz_files\Charlie_Johnson_bandleader.png" />
+    <Content Include="Linked Jazz_files\Charlie_Parker.png" />
+    <Content Include="Linked Jazz_files\Charlie_Shavers.png" />
+    <Content Include="Linked Jazz_files\Chet_Baker.png" />
+    <Content Include="Linked Jazz_files\Chick_Webb.png" />
+    <Content Include="Linked Jazz_files\Chico_Hamilton.png" />
+    <Content Include="Linked Jazz_files\Chu_Berry.png" />
+    <Content Include="Linked Jazz_files\Clark_Terry.png" />
+    <Content Include="Linked Jazz_files\Claude_Thornhill.png" />
+    <Content Include="Linked Jazz_files\Clifford_Brown.png" />
+    <Content Include="Linked Jazz_files\Coleman_Hawkins.png" />
+    <Content Include="Linked Jazz_files\Count_Basie.png" />
+    <Content Include="Linked Jazz_files\Cozy_Cole.png" />
+    <Content Include="Linked Jazz_files\d3.js" />
+    <Content Include="Linked Jazz_files\Danny_Barker.png" />
+    <Content Include="Linked Jazz_files\Dave_Brubeck.png" />
+    <Content Include="Linked Jazz_files\David_Baker_composer.png" />
+    <Content Include="Linked Jazz_files\Delfeayo_Marsalis.png" />
+    <Content Include="Linked Jazz_files\Dexter_Gordon.png" />
+    <Content Include="Linked Jazz_files\Dinah_Washington.png" />
+    <Content Include="Linked Jazz_files\Dizzy_Gillespie.png" />
+    <Content Include="Linked Jazz_files\Doc_Cheatham.png" />
+    <Content Include="Linked Jazz_files\Don_Byas.png" />
+    <Content Include="Linked Jazz_files\Don_Redman.png" />
+    <Content Include="Linked Jazz_files\dragdealer.js" />
+    <Content Include="Linked Jazz_files\Duke_Ellington.png" />
+    <Content Include="Linked Jazz_files\Earl_Hines.png" />
+    <Content Include="Linked Jazz_files\Eddie_Marshall.png" />
+    <Content Include="Linked Jazz_files\Ed_Shaughnessy.png" />
+    <Content Include="Linked Jazz_files\Ella_Fitzgerald.png" />
+    <Content Include="Linked Jazz_files\Elvin_Jones.png" />
+    <Content Include="Linked Jazz_files\Eric_Dolphy.png" />
+    <Content Include="Linked Jazz_files\Erroll_Garner.png" />
+    <Content Include="Linked Jazz_files\Erskine_Hawkins.png" />
+    <Content Include="Linked Jazz_files\Etta_Jones.png" />
+    <Content Include="Linked Jazz_files\Fats_Navarro.png" />
+    <Content Include="Linked Jazz_files\Fats_Waller.png" />
+    <Content Include="Linked Jazz_files\Fletcher_Henderson.png" />
+    <Content Include="Linked Jazz_files\Frank_Foster_musician.png" />
+    <Content Include="Linked Jazz_files\Frank_Sinatra.png" />
+    <Content Include="Linked Jazz_files\Frank_Wess.png" />
+    <Content Include="Linked Jazz_files\Freddie_Green.png" />
+    <Content Include="Linked Jazz_files\ga.js" />
+    <Content Include="Linked Jazz_files\Gene_Krupa.png" />
+    <Content Include="Linked Jazz_files\George_Shearing.png" />
+    <Content Include="Linked Jazz_files\George_Wein.png" />
+    <Content Include="Linked Jazz_files\Gerald_Wiggins.png" />
+    <Content Include="Linked Jazz_files\Gerald_Wilson.png" />
+    <Content Include="Linked Jazz_files\Gil_Evans.png" />
+    <Content Include="Linked Jazz_files\Glenn_Miller.png" />
+    <Content Include="Linked Jazz_files\Gunther_Schuller.png" />
+    <Content Include="Linked Jazz_files\Hank_Jones.png" />
+    <Content Include="Linked Jazz_files\Harold_Ousley.png" />
+    <Content Include="Linked Jazz_files\Harry_James.png" />
+    <Content Include="Linked Jazz_files\Helen_Humes.png" />
+    <Content Include="Linked Jazz_files\Herbie_Hancock.png" />
+    <Content Include="Linked Jazz_files\Herb_Jeffries.png" />
+    <Content Include="Linked Jazz_files\Horace_Silver.png" />
+    <Content Include="Linked Jazz_files\Hot_Lips_Page.png" />
+    <Content Include="Linked Jazz_files\Illinois_Jacquet.png" />
+    <Content Include="Linked Jazz_files\J.png" />
+    <Content Include="Linked Jazz_files\Jackie_McLean.png" />
+    <Content Include="Linked Jazz_files\Jack_Teagarden.png" />
+    <Content Include="Linked Jazz_files\James_Moody_saxophonist.png" />
+    <Content Include="Linked Jazz_files\James_P.png" />
+    <Content Include="Linked Jazz_files\Jane_Jarvis.png" />
+    <Content Include="Linked Jazz_files\Jay_McShann.png" />
+    <Content Include="Linked Jazz_files\Jelly_Roll_Morton.png" />
+    <Content Include="Linked Jazz_files\Jerome_Richardson.png" />
+    <Content Include="Linked Jazz_files\Jimmie_Lunceford.png" />
+    <Content Include="Linked Jazz_files\Jimmy_Cleveland.png" />
+    <Content Include="Linked Jazz_files\Jimmy_Dorsey.png" />
+    <Content Include="Linked Jazz_files\Jimmy_Jones_pianist.png" />
+    <Content Include="Linked Jazz_files\Jimmy_Scott.png" />
+    <Content Include="Linked Jazz_files\Joe_Morello.png" />
+    <Content Include="Linked Jazz_files\Joe_Newman_trumpeter.png" />
+    <Content Include="Linked Jazz_files\Joe_Williams_jazz_singer.png" />
+    <Content Include="Linked Jazz_files\Johnny_Griffin.png" />
+    <Content Include="Linked Jazz_files\Johnny_Hodges.png" />
+    <Content Include="Linked Jazz_files\John_Coltrane.png" />
+    <Content Include="Linked Jazz_files\John_Levy_musician.png" />
+    <Content Include="Linked Jazz_files\John_Lewis_pianist.png" />
+    <Content Include="Linked Jazz_files\Jo_Jones.png" />
+    <Content Include="Linked Jazz_files\jquery.js" />
+    <Content Include="Linked Jazz_files\jquery_002.js" />
+    <Content Include="Linked Jazz_files\Julius_Watkins.png" />
+    <Content Include="Linked Jazz_files\Kaiser_Marshall.png" />
+    <Content Include="Linked Jazz_files\Kenny_Burrell.png" />
+    <Content Include="Linked Jazz_files\Kenny_Clarke.png" />
+    <Content Include="Linked Jazz_files\Kenny_Dorham.png" />
+    <Content Include="Linked Jazz_files\Kid_Ory.png" />
+    <Content Include="Linked Jazz_files\Lawrence_Brown_musician.png" />
+    <Content Include="Linked Jazz_files\Lee_Young.png" />
+    <Content Include="Linked Jazz_files\Lena_Horne.png" />
+    <Content Include="Linked Jazz_files\Lester_Young.png" />
+    <Content Include="Linked Jazz_files\Lionel_Hampton.png" />
+    <Content Include="Linked Jazz_files\ljspinner.gif" />
+    <Content Include="Linked Jazz_files\logo.png" />
+    <Content Include="Linked Jazz_files\Louie_Bellson.png" />
+    <Content Include="Linked Jazz_files\Louis_Armstrong.png" />
+    <Content Include="Linked Jazz_files\Louis_Jordan.png" />
+    <Content Include="Linked Jazz_files\Lucky_Millinder.png" />
+    <Content Include="Linked Jazz_files\Lucky_Thompson.png" />
+    <Content Include="Linked Jazz_files\Marian_McPartland.png" />
+    <Content Include="Linked Jazz_files\Mary_Lou_Williams.png" />
+    <Content Include="Linked Jazz_files\Max_Roach.png" />
+    <Content Include="Linked Jazz_files\McCoy_Tyner.png" />
+    <Content Include="Linked Jazz_files\Melba_Liston.png" />
+    <Content Include="Linked Jazz_files\Mel_Lewis.png" />
+    <Content Include="Linked Jazz_files\menu_clear.png" />
+    <Content Include="Linked Jazz_files\menu_dynamic.png" />
+    <Content Include="Linked Jazz_files\menu_fixed.png" />
+    <Content Include="Linked Jazz_files\menu_free.png" />
+    <Content Include="Linked Jazz_files\menu_similar.png" />
+    <Content Include="Linked Jazz_files\Miles_Davis.png" />
+    <Content Include="Linked Jazz_files\Milt_Hinton.png" />
+    <Content Include="Linked Jazz_files\Milt_Jackson.png" />
+    <Content Include="Linked Jazz_files\Nancy_Wilson_jazz_singer.png" />
+    <Content Include="Linked Jazz_files\Nat_King_Cole.png" />
+    <Content Include="Linked Jazz_files\Neal_Hefti.png" />
+    <Content Include="Linked Jazz_files\network.css" />
+    <Content Include="Linked Jazz_files\network.js" />
+    <Content Include="Linked Jazz_files\Norman_Granz.png" />
+    <Content Include="Linked Jazz_files\no_image.png" />
+    <Content Include="Linked Jazz_files\Oliver_Nelson.png" />
+    <Content Include="Linked Jazz_files\Ornette_Coleman.png" />
+    <Content Include="Linked Jazz_files\Oscar_Peterson.png" />
+    <Content Include="Linked Jazz_files\Oscar_Pettiford.png" />
+    <Content Include="Linked Jazz_files\Paul_Gonsalves.png" />
+    <Content Include="Linked Jazz_files\Percy_Heath.png" />
+    <Content Include="Linked Jazz_files\Philly_Joe_Jones.png" />
+    <Content Include="Linked Jazz_files\Phil_Woods.png" />
+    <Content Include="Linked Jazz_files\Quincy_Jones.png" />
+    <Content Include="Linked Jazz_files\Randy_Weston.png" />
+    <Content Include="Linked Jazz_files\Ray_Brown_Jr.png" />
+    <Content Include="Linked Jazz_files\Ray_Brown_musician.png" />
+    <Content Include="Linked Jazz_files\Ray_Drummond.png" />
+    <Content Include="Linked Jazz_files\Ray_Nance.png" />
+    <Content Include="Linked Jazz_files\Red_Rodney.png" />
+    <Content Include="Linked Jazz_files\Ron_Carter.png" />
+    <Content Include="Linked Jazz_files\Roy_Eldridge.png" />
+    <Content Include="Linked Jazz_files\Roy_Haynes.png" />
+    <Content Include="Linked Jazz_files\Sammy_Davis_Jr.png" />
+    <Content Include="Linked Jazz_files\Sam_Rivers.png" />
+    <Content Include="Linked Jazz_files\Sarah_Vaughan.png" />
+    <Content Include="Linked Jazz_files\Shadow_Wilson.png" />
+    <Content Include="Linked Jazz_files\Sidney_Bechet.png" />
+    <Content Include="Linked Jazz_files\Sid_Catlett.png" />
+    <Content Include="Linked Jazz_files\Slam_Stewart.png" />
+    <Content Include="Linked Jazz_files\Slide_Hampton.png" />
+    <Content Include="Linked Jazz_files\Snooky_Young.png" />
+    <Content Include="Linked Jazz_files\Sonny_Greer.png" />
+    <Content Include="Linked Jazz_files\Sonny_Stitt.png" />
+    <Content Include="Linked Jazz_files\Stan_Getz.png" />
+    <Content Include="Linked Jazz_files\Stan_Kenton.png" />
+    <Content Include="Linked Jazz_files\Stevie_Wonder.png" />
+    <Content Include="Linked Jazz_files\Sweets_Edison.png" />
+    <Content Include="Linked Jazz_files\Sy_Oliver.png" />
+    <Content Include="Linked Jazz_files\Tadd_Dameron.png" />
+    <Content Include="Linked Jazz_files\Teddy_Wilson.png" />
+    <Content Include="Linked Jazz_files\Thad_Jones.png" />
+    <Content Include="Linked Jazz_files\Thelonious_Monk.png" />
+    <Content Include="Linked Jazz_files\Tiny_Bradshaw.png" />
+    <Content Include="Linked Jazz_files\Tommy_Dorsey.png" />
+    <Content Include="Linked Jazz_files\Tommy_Potter.png" />
+    <Content Include="Linked Jazz_files\Tony_Bennett.png" />
+    <Content Include="Linked Jazz_files\Tony_Williams.png" />
+    <Content Include="Linked Jazz_files\Tricky_Sam_Nanton.png" />
+    <Content Include="Linked Jazz_files\Wardell_Gray.png" />
+    <Content Include="Linked Jazz_files\Wayne_Shorter.png" />
+    <Content Include="Linked Jazz_files\Woody_Herman.png" />
+    <Content Include="Linked Jazz_files\Wynton_Kelly.png" />
+    <Content Include="Linked Jazz_files\Wynton_Marsalis.png" />
+    <Content Include="Linked Jazz_files\Yusef_Lateef.png" />
+    <Content Include="Linked Jazz_files\Zutty_Singleton.png" />
+    <Content Include="Places-App.proj" />
+    <Content Include="scripts\app.js" />
+    <Content Include="scripts\app\categories.js" />
+    <Content Include="scripts\app\extensions.js" />
+    <Content Include="scripts\app\http-request.js" />
+    <Content Include="scripts\app\places.js" />
+    <Content Include="scripts\libs\rsvp.min.js" />
+    <Content Include="styles\app.css" />
+    <Content Include="views\artists-view2.html" />
+    <Content Include="views\artists-view.html" />
+    <Content Include="views\categories-view.html" />
+    <Content Include="views\graph-view.html" />
+    <Content Include="views\places-view.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Resources\" />
+    <Folder Include="App_Resources\Android\" />
+    <Folder Include="App_Resources\Android\drawable-hdpi\" />
+    <Folder Include="App_Resources\Android\drawable-ldpi\" />
+    <Folder Include="App_Resources\Android\drawable-mdpi\" />
+    <Folder Include="App_Resources\Android\drawable-nodpi\" />
+    <Folder Include="App_Resources\iOS\" />
+    <Folder Include="css\" />
+    <Folder Include="data\" />
+    <Folder Include="img\" />
+    <Folder Include="js\" />
+    <Folder Include="kendo\" />
+    <Folder Include="kendo\js\" />
+    <Folder Include="kendo\styles\" />
+    <Folder Include="kendo\styles\default\" />
+    <Folder Include="kendo\styles\images\" />
+    <Folder Include="kendo\styles\textures\" />
+    <Folder Include="Linked Jazz_files\" />
+    <Folder Include="Plugins\" />
+    <Folder Include="scripts\" />
+    <Folder Include="scripts\app\" />
+    <Folder Include="scripts\libs\" />
+    <Folder Include="styles\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <Import Project="$(IceniumTargets)Build.targets" />
+  <!--
+	TODO: Uncomment this code if you need to customize the build process.
+	<Target Name="BeforeBuild">
+		<Message Text="TODO: Implement BeforeBuild" Importance="high" />
+	</Target>
+
+	<Target Name="AfterBuild">
+		<Message Text="TODO: Implement AfterBuild" Importance="high" />
+	</Target>
+	-->
+</Project>

@@ -1,0 +1,31 @@
+﻿<button id="filter" class="k-button">test filter</button>
+
+<div id="grid" data-role="view"></div>
+<script type="text/x-kendo-tmpl" id="filtering-template">
+    <div class="product">
+        <h3>#:name#</h3>
+    </div>
+</script>
+<script>
+    $(function () {
+        dataSource = new kendo.data.DataSource({
+            data: [{ name: "Bill" },
+                    { name: "Bob" },
+                    { name: "Johnny" }]
+        });
+
+        $("#grid").kendoGrid({
+            dataSource: dataSource,
+            template: $("#filtering-template").text(),
+        });
+
+        $("#filter").click(function () {
+            dataSource.filter({
+                field: "name",
+                operator: function (item) {
+                    return item.length == 4
+                },
+            })
+        });
+    });
+</script>
