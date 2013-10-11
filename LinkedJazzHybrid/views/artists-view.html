@@ -1,31 +1,66 @@
-﻿<button id="filter" class="k-button">test filter</button>
+﻿<div data-role="view" data-layout="main-layout" data-init="mobileListViewFiltering" data-title="Artists">
 
-<div id="grid" data-role="view"></div>
-<script type="text/x-kendo-tmpl" id="filtering-template">
+    <header data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+            <a data-align="right" data-role="button" class="nav-button" href="#index">Index</a>
+        </div>
+    </header>
+
+    <ul id="filterable-listview"></ul>
+</div>
+
+<script type="text/x-kendo-tmpl" id="mobile-listview-filtering-template">
     <div class="product">
-        <h3>#:name#</h3>
+        <h3>#:label#</h3>
     </div>
 </script>
+
 <script>
-    $(function () {
-        dataSource = new kendo.data.DataSource({
-            data: [{ name: "Bill" },
-                    { name: "Bob" },
-                    { name: "Johnny" }]
+    function mobileListViewFiltering() {
+        var dataSource = new kendo.data.DataSource({
+            type: "odata",
+            data: baseNodes,
+            sort: {
+                field: "label",
+                dir: "asc"
+            },
+            group: "letter",
+          
+            pageSize: 50
         });
 
-        $("#grid").kendoGrid({
+        $("#filterable-listview").kendoMobileListView({
             dataSource: dataSource,
-            template: $("#filtering-template").text(),
+            template: $("#mobile-listview-filtering-template").text(),
+            filterable: {
+                field: "label",
+                operator: "startswith"
+            },
+            endlessScroll: true
         });
-
-        $("#filter").click(function () {
-            dataSource.filter({
-                field: "name",
-                operator: function (item) {
-                    return item.length == 4
-                },
-            })
-        });
-    });
+    }
 </script>
+
+<style scoped>
+    .product h3 {
+        font-size: 1.3em;
+        line-height: 1.4em;
+        margin: 0;
+        padding: 0;
+        height: 1.3em;
+        overflow: hidden;
+    }
+    .product p {
+        font-size: 1em;
+        margin: 0;
+        padding: .3em 0 0;
+    }
+    .pullImage {
+        width: 64px;
+        height: 64px;
+        border-radius: 3px;
+        float: left;
+        margin-right: 10px;
+    }
+</style>

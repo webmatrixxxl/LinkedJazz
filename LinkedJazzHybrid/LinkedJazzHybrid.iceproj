@@ -246,6 +246,7 @@
     <Content Include="Linked Jazz_files\John_Lewis_pianist.png" />
     <Content Include="Linked Jazz_files\Jo_Jones.png" />
     <Content Include="Linked Jazz_files\jquery.js" />
+    <Content Include="Linked Jazz_files\jquery.rdfquery.core.min-1.0.js" />
     <Content Include="Linked Jazz_files\jquery_002.js" />
     <Content Include="Linked Jazz_files\Julius_Watkins.png" />
     <Content Include="Linked Jazz_files\Kaiser_Marshall.png" />
@@ -345,7 +346,6 @@
     <Content Include="scripts\app\places.js" />
     <Content Include="scripts\libs\rsvp.min.js" />
     <Content Include="styles\app.css" />
-    <Content Include="views\artists-view2.html" />
     <Content Include="views\artists-view.html" />
     <Content Include="views\categories-view.html" />
     <Content Include="views\graph-view.html" />

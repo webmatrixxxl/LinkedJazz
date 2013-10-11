@@ -4,41 +4,41 @@ if (!document.createElementNS || !document.createElementNS('http://www.w3.org/20
 }
 
 
+
 var visMode = 'wave';			//the type of network to render, each has it own settings
 
-var tripleStore = null;			//holds the triple data bank created by te rdfquery plugin
-var tripleObject = null;		//holds the javascript seralized object of the triple store
-var descStore = null;			//holds the triple data bank created by te rdfquery plugin for the description
-var descObject = null;			//holds the javascript seralized object of the triple store for the description
+//var tripleStore = null;			//holds the triple data bank created by te rdfquery plugin
+//var tripleObject = null;		//holds the javascript seralized object of the triple store
+//var descStore = null;			//holds the triple data bank created by te rdfquery plugin for the description
+//var descObject = null;			//holds the javascript seralized object of the triple store for the description
 var largestNodes = [];			//holds a list of the N largest nodes/people (most connections) in order to place/lock them properly on render
 var hidePopupTimer = null;		//holds the timer to close the popup
 var showPopupTimer = null;
 var currentNode = null;			//the current node we are highligting
-var usePerson = null;			//the person in person mode
+//var usePerson = null;			//the person in person mode
 var usePersonIndex = 0;			//the index pos of the usePerson in the nodes array, so we dont have to loop through the whole thing everytime
 var edgesAvg = 0;
 var edgesInterval = 0			//the steps between the avg and largest # edges
 var trans = [0, 0];
 var scale = 1;
-var dynamicPeople = [];			//holds who is added in the dynamic mode
+//var dynamicPeople = [];			//holds who is added in the dynamic mode
 
 var zoom = null;				//the d3.js zoom object
-var baseNodes = [];				//stores the base (all) of the nodes and
-var baseLinks = [];				// links
-
+//var baseNodes = [];				//stores the base (all) of the nodes and
+//var baseLinks = [];				// links
 var force = null;				//the d3 force object
 var vis = null					//the visualization
 var visWidth = 0;			//width and height of the network canvas, in px
 var visHeight = 0;
 
-var connectionCounter = {};		//holds each  id as a property name w/ the value = # of connections they have
+//var connectionCounter = {};		//holds each  id as a property name w/ the value = # of connections they have
 
-var connectionIndex = {};		//a object with properties as id names, with values an array of strings of ids that person has connections to.
-var largestConnection = 0;		//
+//var connectionIndex = {};		//a object with properties as id names, with values an array of strings of ids that person has connections to.
+//var largestConnection = 0;		//
 
 
-var simlarityIndex = {}			//properties are id names, with the value being an array of objects with other ids and their # of matching connections
-var largestSimilarity = 0;		//holds the max number of similar connections any two nodes share in the network
+//var simlarityIndex = {}			//properties are id names, with the value being an array of objects with other ids and their # of matching connections
+//var largestSimilarity = 0;		//holds the max number of similar connections any two nodes share in the network
 
 var strokeWidth = 0.1;			//the defult width to make the stroke
 
@@ -52,7 +52,7 @@ var networkNodeDrag = false;	//can you drag the nodes about?
 
 var networkMinEdges = 4;		//the min number of edges to have a node be rendered
 
-var cssSafe = new RegExp(/%|\(|\)|\.|\,/g);	//the regex to remove non css viable chars
+//var cssSafe = new RegExp(/%|\(|\)|\.|\,/g);	//the regex to remove non css viable chars
 
 var youTubeObject = '<object style="height=130px; width=200px; position: absolute; bottom: 0px;"> <param name="movie" value="https://www.youtube.com/v/<id>?version=3&feature=player_embedded&controls=1&enablejsapi=1&modestbranding=1&rel=0&showinfo=1&autoplay=1"><param name="allowFullScreen" value="true"><param name="wmode" value="transparent"><param name="allowScriptAccess" value="always"><embed src="https://www.youtube.com/v/<id>?version=3&feature=player_embedded&controls=1&enablejsapi=1&modestbranding=1&rel=0&showinfo=1&autoplay=1" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="200" height="130" wmode="transparent"></object>';
 var zoomWidgetObj = null;			//the zoom widget draghandeler object
@@ -125,14 +125,16 @@ jQuery(document).ready(function ($) {
         $.get('data/triples.txt', function (data) {
 
 
-            buildTripleStore(data);
+            //buildTripleStore(data);
 
             dataAnalysis();
 
-            buildBase();
+            //buildBase();
 
+			  //buildDynamicList();
             showSpinner("Rendering<br>Network");
             filter();
+
 
         })
 		.error(function () { alert("There was an error in accessing the data file. Please try again."); });
