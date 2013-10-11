@@ -28,8 +28,8 @@ var baseLinks = [];				// links
 
 var force = null;				//the d3 force object
 var vis = null					//the visualization
-var visWidth = 1000;			//width and height of the network canvas, in px
-var visHeight = 500;
+var visWidth = 0;			//width and height of the network canvas, in px
+var visHeight = 0;
 
 var connectionCounter = {};		//holds each  id as a property name w/ the value = # of connections they have
 
@@ -40,10 +40,10 @@ var largestConnection = 0;		//
 var simlarityIndex = {}			//properties are id names, with the value being an array of objects with other ids and their # of matching connections
 var largestSimilarity = 0;		//holds the max number of similar connections any two nodes share in the network
 
-var strokeWidth = 0.3;			//the defult width to make the stroke
+var strokeWidth = 0.1;			//the defult width to make the stroke
 
 //the settings that vary for each diff type of network 
-var networkGravity = 0;
+var networkGravity = 1;
 var netwokrLinkLength = 35;
 var networkLargeNodeLimit = 20;	//the number of top nodes to fix/lock to a patterend spot on the network
 var netwokrCharge = -800;
