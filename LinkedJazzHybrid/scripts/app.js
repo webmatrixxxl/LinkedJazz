@@ -7,5 +7,6 @@ var app = app || {};
         app.servicesBaseUrl = "http://the-places.apphb.com/api/";
         
         var kendoApp = new kendo.mobile.Application(document.body);
+        app.kendo = kendoApp;
     });    
 }());

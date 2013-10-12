@@ -1,4 +1,10 @@
-﻿<div data-role="view" data-layout="main-layout" data-init="mobileListViewFiltering" data-title="Artists">
+﻿
+
+    <link href="styles/app.css" rel="stylesheet" />
+    <script src="http://cdn.kendostatic.com/2013.1.319/js/kendo.all.min.js"></script>
+
+
+<div data-role="view" data-layout="main-layout" data-init="mobileListViewFiltering" data-title="Artists">
 
     <header data-role="header">
         <div data-role="navbar">
@@ -11,8 +17,10 @@
 </div>
 
 <script type="text/x-kendo-tmpl" id="mobile-listview-filtering-template">
-    <div class="product">
+    <div id="#=id#" class="artist"  onclick="loadArtistInGraph(this)" >
+        <img src="#=image#" alt="#=label# image" class="pullImage"/>
         <h3>#:label#</h3>
+        <div>#:descText#</div>
     </div>
 </script>
 
@@ -26,10 +34,12 @@
                 dir: "asc"
             },
             group: "letter",
-          
+         
+
+
             pageSize: 50
         });
-
+        console.log(($("#filterable-listview")));
         $("#filterable-listview").kendoMobileListView({
             dataSource: dataSource,
             template: $("#mobile-listview-filtering-template").text(),
@@ -40,10 +50,29 @@
             endlessScroll: true
         });
     }
+
+    
+    function loadArtistInGraph(e) {
+        app.kendo.navigate("views/graph-view.html#graph-view");
+
+        dynamicPeople = [];
+
+        if (dynamicPeople.indexOf($(this).data("id")) == -1) {
+            $("#dynamicClear").fadeIn(5000);
+            $("#dynamicHelp").css("display", "none");
+            usePerson = e.id;
+            dynamicPeople.push(usePerson);
+
+          filter();
+        }
+
+        
+    }
 </script>
 
+
 <style scoped>
-    .product h3 {
+    .artist h3 {
         font-size: 1.3em;
         line-height: 1.4em;
         margin: 0;
@@ -51,11 +80,13 @@
         height: 1.3em;
         overflow: hidden;
     }
-    .product p {
-        font-size: 1em;
+
+    .artist div {
+        font-size: 0.7em;
         margin: 0;
         padding: .3em 0 0;
     }
+
     .pullImage {
         width: 64px;
         height: 64px;

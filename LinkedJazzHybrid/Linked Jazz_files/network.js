@@ -5,7 +5,7 @@ if (!document.createElementNS || !document.createElementNS('http://www.w3.org/20
 
 
 
-var visMode = 'wave';			//the type of network to render, each has it own settings
+var visMode = 'dynamic';			//the type of network to render, each has it own settings
 
 //var tripleStore = null;			//holds the triple data bank created by te rdfquery plugin
 //var tripleObject = null;		//holds the javascript seralized object of the triple store
@@ -131,7 +131,7 @@ jQuery(document).ready(function ($) {
 
             //buildBase();
 
-			  //buildDynamicList();
+            buildDynamicList();
             showSpinner("Rendering<br>Network");
             filter();
 
@@ -369,6 +369,72 @@ function initalizeNetwork() {
 	  + " scale(" + scale + ")");
 
 }
+
+//build the intial list used for dynamic mode
+function buildDynamicList() {
+
+
+    var listNodes = baseNodes;
+
+    listNodes.sort(function (a, b) {
+        var nameA = a.labelLast.toLowerCase(), nameB = b.labelLast.toLowerCase()
+        if (nameA < nameB) //sort string ascending
+            return -1
+        if (nameA > nameB)
+            return 1
+        return 0 //default return value (no sorting)
+    });
+
+    for (x in listNodes) {
+
+        var id_css = listNodes[x].id.split("/")[listNodes[x].id.split("/").length - 1].replace(cssSafe, '');
+        var id_img = $.trim(decodeURI(listNodes[x].id).split("\/")[decodeURI(listNodes[x].id).split("\/").length - 1]);
+
+        var descText = listNodes[x].descText;
+
+
+        $("#dynamicListHolder").append
+        (
+            $("<div>")
+                .attr("id", "dynamic_" + id_css)
+                .addClass("dynamicListItem")
+                .data("label", listNodes[x].labelLast)
+                .data("id", listNodes[x].id)
+                .click(function () { if (dynamicPeople.indexOf($(this).data("id")) == -1) { $("#dynamicClear").fadeIn(5000); $("#dynamicHelp").css("display", "none"); usePerson = $(this).data("id"); dynamicPeople.push(usePerson); filter(); } })
+                .append
+                (
+                    $("<img>")
+                        .attr("src", function () {
+
+                            if (fileNames.indexOf(id_img + '.png') != -1) {
+                                return "img/" + id_img + '.png';
+                            } else {
+                                return "";
+                            }
+                        })
+                        .css("visibility", function () {
+                            if (fileNames.indexOf(id_img + '.png') != -1) {
+                                return "visible"
+                            } else {
+                                return "hidden"
+                            }
+                        })
+
+                )
+                .append
+                (
+                    $("<div>")
+                        .text(listNodes[x].labelLast)
+                        .attr("title", descText)
+
+                )
+
+        )
+    }
+
+
+}
+
 
 //process the triple data through the RDF jquery plugin to create an object
 function buildTripleStore(data) {
@@ -728,484 +794,6 @@ function buildBase() {
 }
 
 
-function filter(clear) {
-
-
-
-    if (typeof clear == 'undefined') { clear = true; }
-
-    //are we wiping the nodes out or just adding?
-
-
-    if (clear) {
-
-        $("#network").css("visibility", "hidden");
-        vis.selectAll("g.node").remove();
-        vis.selectAll("line.link").remove();
-
-
-        nodes = [];
-        links = [];
-        force.nodes([]);
-        force.links([]);
-        restart();
-    }
-
-
-    var workingNodes = [];
-    var workingLinks = [];
-
-
-
-    nodesRemove = {};
-
-    if (visMode == 'person') {
-
-        for (var key in connectionIndex) {
-            if (connectionIndex[key].indexOf(usePerson) == -1 && key != usePerson) {
-                nodesRemove[key] = true;
-            }
-        }
-
-    } else if (visMode == 'dynamic') {
-
-        console.log(dynamicPeople);
-
-        var connected = [];
-        var connetedCounteed = {};
-
-        //we want to only add people if they are a selected person, or they have a connection that is shared by at least one person aready on the graph		
-
-        for (x in dynamicPeople) {
-
-            //add everyones connections
-            for (y in connectionIndex[dynamicPeople[x]]) {
-                connected.push(connectionIndex[dynamicPeople[x]][y]);
-            }
-
-        }
-
-        for (x in connected) {
-
-            if (connetedCounteed.hasOwnProperty(connected[x])) {
-                connetedCounteed[connected[x]] = connetedCounteed[connected[x]] + 1;
-            } else {
-                connetedCounteed[connected[x]] = 1;
-            }
-
-        }
-
-        console.log(connetedCounteed);
-
-
-        for (x in baseNodes) {
-
-
-            //is this node in the conenctions?
-            if (connetedCounteed.hasOwnProperty(baseNodes[x].id)) {
-
-                //yes, but do they have more than one entry, meaning that more than 1 person has them as a connection?
-                if (connetedCounteed[baseNodes[x].id] < 2) {
-
-                    //no
-                    //but are they one of the dynamic people?
-                    if (dynamicPeople.indexOf(baseNodes[x].id) == -1) {
-                        //no
-                        nodesRemove[baseNodes[x].id] = true;
-                    }
-
-                }
-
-
-            } else {
-
-                //no...but are they the person themselfs?
-                if (dynamicPeople.indexOf(baseNodes[x].id) == -1) {
-                    //no, remove them
-                    nodesRemove[baseNodes[x].id] = true;
-                }
-
-
-            }
-
-
-
-
-
-
-        }
-
-
-
-
-    } else {
-
-
-
-        //filter out people with too little number of conenctions. we use the connectionCounter from the buildBase function		
-        for (var key in connectionCounter) {
-            if (connectionCounter.hasOwnProperty(key)) {
-                if (connectionCounter[key] < networkMinEdges) {
-                    nodesRemove[key] = true;
-                }
-            }
-        }
-
-
-
-
-
-
-    }
-
-
-    //now build the working arrays of the things we want to keep, 
-    for (aNode in baseNodes) {
-        if (!nodesRemove.hasOwnProperty(baseNodes[aNode].id)) {
-            workingNodes.push(baseNodes[aNode]);
-        }
-    }
-
-
-    for (aLink in baseLinks) {
-        if (nodesRemove.hasOwnProperty(baseLinks[aLink].source.id) == false && nodesRemove.hasOwnProperty(baseLinks[aLink].target.id) == false) {
-            workingLinks.push(baseLinks[aLink]);
-        }
-    }
-
-
-
-    if (visMode == 'dynamic') {
-        //for the dynmaic mode, we don't want a whole mess of edges cofusing things, since we are just intrested in how the added people are connected
-        var temp = [];
-        for (aLink in workingLinks) {
-            if (dynamicPeople.indexOf(workingLinks[aLink].source.id) != -1 || dynamicPeople.indexOf(workingLinks[aLink].target.id) != -1) {
-                temp.push(workingLinks[aLink]);
-            }
-        }
-        workingLinks = temp;
-
-    }
-
-
-    /*
-	
-	for (var i = nodesRemove.length - 1; i >= 0; i--) {	
-		nodes.splice(nodesRemove[i],1);
-	}
-	for (var i = linksRemove.length - 1; i >= 0; i--) {	
-		links.splice(linksRemove[i],1);
-	}
-	*/
-
-
-
-    //lock the large nodes to the pattern 
-    for (aNode in workingNodes) {
-
-        workingNodes[aNode].lock = false;
-        workingNodes[aNode].y = visHeight / 2;
-        workingNodes[aNode].x = Math.floor((Math.random() * visWidth) + 1);
-
-
-        if (visMode != "person") {
-            for (large in largestNodes) {
-                if (largestNodes[large].node == workingNodes[aNode].id) {
-                    workingNodes[aNode].lockX = largestNodes[large].x;
-                    workingNodes[aNode].lockY = largestNodes[large].y;
-                    workingNodes[aNode].lock = true;
-                }
-            }
-        }
-
-        if (visMode == "person" && workingNodes[aNode].id == usePerson) {
-            usePersonIndex = aNode;
-        }
-
-
-    }
-
-
-    //copy over our work into the d3 node/link array
-    nodes = force.nodes();
-    links = force.links();
-
-    for (aNode in workingNodes) {
-        nodes.push(workingNodes[aNode]);
-    }
-    for (aLink in workingLinks) {
-        links.push(workingLinks[aLink]);
-    }
-
-
-    /*
-	if(visMode == 'dynamic'){		
-		//we also dont want to double add nodes, we needed to leave them in up to this point so the new links could be drawn, but, now take them out
-		var temp = [];
-		for (r in nodes){
-		
-			var add=true;
-		
-			//is it already in there?
-			for (n in temp){
-				if (nodes[r].id == temp[n].id){
-					add=false;
-				}
-			}
-		
-			if (add){
-				temp.push(nodes[r]);
-			}		
-			
-		}		
-		nodes = temp;
-		
-		
-		
-	} 	
-	
-	
-	console.log(nodes);
-	*/
-
-
-    restart();
-
-
-
-
-
-
-}
-
-
-function restart() {
-
-
-
-
-
-    vis.append("svg:defs").selectAll("marker")
-   .data(["FOAFknows"])
- .enter().append("svg:marker")
-   .attr("id", String)
-   .attr("class", "marker")
-   .attr("viewBox", "0 -5 10 10")
-   .attr("refX", 10)
-   .attr("refY", 0)
-   .attr("markerWidth", 10)
-   .attr("markerHeight", 10)
-   .attr("orient", "auto")
- .append("svg:path")
-   .attr("d", "M0,-5L10,0L0,5")
-   .style("fill", "#666")
-   .style("stroke-width", 0);
-
-    vis.selectAll("line.link")
-	  .data(links)
-	.enter().insert("line", "circle.node")
-	  .style("stroke", function (d) { return edgeColor(d); })
-	  .style("stroke-width", function (d) { return edgeStrokeWidth(d); })
-	  .attr("class", function (d) { return "link " + d.customClass })
-	  .attr("marker-end", function (d) { return (visMode == "person" || visMode == "dynamic") ? "url(#FOAFknows)" : "none"; })
-	  .attr("x1", function (d) { return d.source.x; })
-	  .attr("y1", function (d) { return d.source.y; })
-	  .attr("x2", function (d) { return d.target.x; })
-	  .attr("y2", function (d) { return d.target.y; });
-
-
-
-
-    var node = vis.selectAll("g.node")
-	  .data(nodes);
-
-    var nodeEnter = node.enter().append("svg:g")
-	  .attr("class", "node")
-	  .style("cursor", "pointer")
-	  .attr("id", function (d) { return "node_" + d.id.split("/")[d.id.split("/").length - 1].replace(cssSafe, '') })
-	  .on("mouseover", function (d) {
-
-
-	      //showPopupTimer = setTimeout(function(){
-	      //clearTimeout(showPopupTimer);
-
-	      currentNode = d;
-	      showPopup(d);
-
-	      //}, 200, [d]);	
-
-	  }).on("mouseout", function (d) {
-
-
-	      currentNode = d;
-	      hidePopupTimer = setTimeout(hidePopup, 150);
-
-	  }).on("click", function (d) {
-
-	      hidePopup();
-
-
-	      $("#network").fadeOut('fast',
-              function () {
-
-
-                  usePerson = d.id;
-                  changeVisMode("person");
-
-              }
-          );
-
-	  });
-
-    if (networkNodeDrag) {
-        nodeEnter.call(force.drag);
-    }
-
-
-
-
-
-
-    nodeEnter.append("circle")
-		.attr("id", function (d) { return "backgroundCircle_" + d.id.split("/")[d.id.split("/").length - 1].replace(cssSafe, ''); })
-		.attr("class", "backgroundCircle")
-		.attr("cx", function (d) { return 0; })
-		.attr("cy", function (d) { return 0; })
-		.attr("r", function (d) { return returnNodeSize(d); })
-		.style("fill", function (d, i) { return "#ccc"; }) //return fill(i & 3); })
-		.style("stroke", function (d, i) { return returnNodeColor(d); })
-		.style("stroke-width", function (d) { return returnNodeStrokeWidth(d); });
-
-
-
-
-    nodeEnter.append("svg:image")
-		  .attr("id", function (d) { return "imageCircle_" + d.id.split("/")[d.id.split("/").length - 1].replace(cssSafe, '') })
-		  .attr("class", "imageCircle")
-		  .attr("xlink:href", function (d) {
-
-		      var useId = $.trim(decodeURI(d.id).split("\/")[decodeURI(d.id).split("\/").length - 1]);
-		      if (fileNames.indexOf(useId + '.png') == -1) {
-		          return "img/menu/no_image.png";
-		      } else {
-		          return "img/" + useId + '.png';
-		      }
-
-
-
-		  })
-   		  .attr("x", function (d) { return (returnNodeSize(d) * -1); })
-		  .attr("y", function (d) { return (returnNodeSize(d) * -1); })
-		  .attr("width", function (d) { return (returnNodeSize(d) * 2); })
-		  .attr("height", function (d) { return (returnNodeSize(d) * 2); });
-
-    nodeEnter.append("svg:text")
-  	  .attr("id", function (d) { return "circleText_" + d.id.split("/")[d.id.split("/").length - 1].replace(cssSafe, '') })
-      .attr("font-size", function (d) { return returnNodeSize(d) / 2 })
-	  .attr("class", function (d) { return "circleText" })
-	  .attr("font-family", "helvetica, sans-serif")
-	  .attr("text-anchor", "middle")
-	  .attr("display", function (d) { return displayLabel(d); })
-	  .attr("x", function (d) { return (returnNodeSize(d) * -0.1); })
-	  .attr("y", function (d) { return returnNodeSize(d) + returnNodeSize(d) / 1.8; })
-
-	   .text(function (d) { return d.label; });
-
-
-    force.start();
-
-
-
-    //controls the movement of the nodes	
-    force.on("tick", function (e) {
-
-        if (visMode == "wave") {
-            for (aNode in nodes) {
-                if (nodes[aNode].lock) {
-                    nodes[aNode].x = nodes[aNode].lockX;
-                    nodes[aNode].y = nodes[aNode].lockY;
-                } else {
-                    if (e.alpha <= .08) {
-                        if (nodes[aNode].y <= 0) { nodes[aNode].y = Math.floor((Math.random() * 20) + 8); nodes[aNode].lock = true; nodes[aNode].lockY = nodes[aNode].y; nodes[aNode].lockX = nodes[aNode].x; }
-                        if (nodes[aNode].y >= visHeight) { nodes[aNode].y = visHeight - Math.floor((Math.random() * 60) + 20); nodes[aNode].lock = true; nodes[aNode].lockY = nodes[aNode].y; nodes[aNode].lockX = nodes[aNode].x; }
-                    }
-                }
-            }
-
-        }
-
-        if (visMode == "person") {
-            nodes[usePersonIndex].x = visWidth / 2;
-            nodes[usePersonIndex].y = visHeight / 2;
-        }
-
-
-        if (networkStopTick) {
-
-            if (e.alpha <= .02) {
-                hideSpinner();
-
-
-                vis.selectAll("line.link")
-				  .attr("x1", function (d) { return d.source.x; })
-				  .attr("y1", function (d) { return d.source.y; })
-				  .attr("x2", function (d) { return d.target.x; })
-				  .attr("y2", function (d) { return d.target.y; });
-
-
-                vis.selectAll("g.node").attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
-
-
-                if ($("#network").css("visibility") != "visible") {
-                    $("#network").css("visibility", "visible");
-                    $("#network").fadeIn();
-
-                    $("#zoomWidget").css("visibility", "visible");
-                }
-
-                if (networkStopTick) {
-                    force.stop();
-                }
-
-
-            }
-
-
-        } else {
-
-            hideSpinner();
-
-
-
-            //in this mode (don't stop tick) is used by the person and dynamic mode, we ewant to illustrat the flow of relationships, so 
-            //do the math needed to draw the markers on the outside of the nodes.
-            //for the other modes, its not important	
-            vis.selectAll("line.link")
-			  .attr("x1", function (d) { return pointsBetween(d.source, d.target)[0][0]; })
-			  .attr("y1", function (d) { return pointsBetween(d.source, d.target)[0][1]; })
-			  .attr("x2", function (d) { return pointsBetween(d.source, d.target)[1][0]; })
-			  .attr("y2", function (d) { return pointsBetween(d.source, d.target)[1][1]; });
-
-
-
-            vis.selectAll("g.node").attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
-
-            if ($("#network").css("visibility") != "visible") {
-                $("#network").css("visibility", "visible");
-                $("#network").fadeIn();
-                $("#zoomWidget").css("visibility", "visible");
-            }
-
-
-        }
-
-
-
-
-
-    });
-
-}
 
 function displayLabel(d) {
 
@@ -1569,7 +1157,7 @@ function buildDynamicList() {
 
 
     var listNodes = baseNodes;
-    console.log(listNodes);
+
     listNodes.sort(function (a, b) {
         var nameA = a.labelLast.toLowerCase(), nameB = b.labelLast.toLowerCase()
         if (nameA < nameB) //sort string ascending
@@ -1608,7 +1196,15 @@ function buildDynamicList() {
 				.addClass("dynamicListItem")
 				.data("label", listNodes[x].labelLast)
 				.data("id", listNodes[x].id)
-				.click(function () { if (dynamicPeople.indexOf($(this).data("id")) == -1) { $("#dynamicClear").fadeIn(5000); $("#dynamicHelp").css("display", "none"); usePerson = $(this).data("id"); dynamicPeople.push(usePerson); filter(); } })
+				.click(function () {
+				    if (dynamicPeople.indexOf($(this).data("id")) == -1) {
+				        $("#dynamicClear").fadeIn(5000);
+				        $("#dynamicHelp").css("display", "none");
+				        usePerson = $(this).data("id");
+				        dynamicPeople.push(usePerson);
+				        filter();
+				    }
+				})
 				.append
 				(
 					$("<img>")
