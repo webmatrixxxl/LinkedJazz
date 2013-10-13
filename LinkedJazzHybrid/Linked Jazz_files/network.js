@@ -1,3 +1,4 @@
+/// <reference path="d3.js" />
 if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect) {
 	alert('We\'re Sorry, this visualization uses the SVG standard, most modern browsers support SVG. If you would like to see this visualization please view this page in another browser such as Google Chrome, Firefox, Safari, or Internet Explorer 9+');
 }
@@ -8,16 +9,16 @@ if (!document.createElementNS || !document.createElementNS('http://www.w3.org/20
 //var tripleObject = null;		//holds the javascript seralized object of the triple store
 //var descStore = null;			//holds the triple data bank created by te rdfquery plugin for the description
 //var descObject = null;			//holds the javascript seralized object of the triple store for the description
-var largestNodes = [];			//holds a list of the N largest nodes/people (most connections) in order to place/lock them properly on render
-var hidePopupTimer = null;		//holds the timer to close the popup
-var showPopupTimer = null;
-var currentNode = null;			//the current node we are highligting
+//var largestNodes = [];			//holds a list of the N largest nodes/people (most connections) in order to place/lock them properly on render
+//var hidePopupTimer = null;		//holds the timer to close the popup
+//var showPopupTimer = null;
+//var currentNode = null;			//the current node we are highligting
 //var usePerson = null;			//the person in person mode
-var usePersonIndex = 0;			//the index pos of the usePerson in the nodes array, so we dont have to loop through the whole thing everytime
-var edgesAvg = 0;
-var edgesInterval = 0			//the steps between the avg and largest # edges
-var trans = [0, 0];
-var scale = 1;
+//var usePersonIndex = 0;			//the index pos of the usePerson in the nodes array, so we dont have to loop through the whole thing everytime
+//var edgesAvg = 0;
+//var edgesInterval = 0			//the steps between the avg and largest # edges
+//var trans = [0, 0];
+//var scale = 1;
 //var dynamicPeople = [];			//holds who is added in the dynamic mode
 
 //var zoom = null;				//the d3.js zoom object
@@ -25,8 +26,8 @@ var scale = 1;
 //var baseLinks = [];				// links
 //var force = null;				//the d3 force object
 //var vis = null					//the visualization
-var visWidth = 0;			//width and height of the network canvas, in px
-var visHeight = 0;
+//var visWidth = 0;			//width and height of the network canvas, in px
+//var visHeight = 0;
 
 //var connectionCounter = {};		//holds each  id as a property name w/ the value = # of connections they have
 
@@ -37,27 +38,27 @@ var visHeight = 0;
 //var simlarityIndex = {}			//properties are id names, with the value being an array of objects with other ids and their # of matching connections
 //var largestSimilarity = 0;		//holds the max number of similar connections any two nodes share in the network
 
-var strokeWidth = 0.1;			//the defult width to make the stroke
+//var strokeWidth = 0.1;			//the defult width to make the stroke
 
-//the settings that vary for each diff type of network 
-var networkGravity = 1;
-var netwokrLinkLength = 35;
-var networkLargeNodeLimit = 20;	//the number of top nodes to fix/lock to a patterend spot on the network
-var netwokrCharge = -800;
-var networkStopTick = true;		//when the alpha value drops to display the graph, do we stop the nodes from animating?
-var networkNodeDrag = true;	//can you drag the nodes about?
+////the settings that vary for each diff type of network 
+//var networkGravity = 1;
+//var netwokrLinkLength = 35;
+//var networkLargeNodeLimit = 20;	//the number of top nodes to fix/lock to a patterend spot on the network
+//var netwokrCharge = -800;
+//var networkStopTick = true;		//when the alpha value drops to display the graph, do we stop the nodes from animating?
+//var networkNodeDrag = true;	//can you drag the nodes about?
 
-var networkMinEdges = 4;		//the min number of edges to have a node be rendered
+//var networkMinEdges = 4;		//the min number of edges to have a node be rendered
 
 //var cssSafe = new RegExp(/%|\(|\)|\.|\,/g);	//the regex to remove non css viable chars
 
-var youTubeObject = '<object style="height=130px; width=200px; position: absolute; bottom: 0px;"> <param name="movie" value="https://www.youtube.com/v/<id>?version=3&feature=player_embedded&controls=1&enablejsapi=1&modestbranding=1&rel=0&showinfo=1&autoplay=1"><param name="allowFullScreen" value="true"><param name="wmode" value="transparent"><param name="allowScriptAccess" value="always"><embed src="https://www.youtube.com/v/<id>?version=3&feature=player_embedded&controls=1&enablejsapi=1&modestbranding=1&rel=0&showinfo=1&autoplay=1" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="200" height="130" wmode="transparent"></object>';
-var zoomWidgetObj = null;			//the zoom widget draghandeler object
-var zoomWidgetObjDoZoom = true;
+//var youTubeObject = '<object style="height=130px; width=200px; position: absolute; bottom: 0px;"> <param name="movie" value="https://www.youtube.com/v/<id>?version=3&feature=player_embedded&controls=1&enablejsapi=1&modestbranding=1&rel=0&showinfo=1&autoplay=1"><param name="allowFullScreen" value="true"><param name="wmode" value="transparent"><param name="allowScriptAccess" value="always"><embed src="https://www.youtube.com/v/<id>?version=3&feature=player_embedded&controls=1&enablejsapi=1&modestbranding=1&rel=0&showinfo=1&autoplay=1" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="200" height="130" wmode="transparent"></object>';
+//var zoomWidgetObj = null;			//the zoom widget draghandeler object
+//var zoomWidgetObjDoZoom = true;
 
-var oldzoom = 0;
-var fill = d3.scale.category10();
-var lineColor = d3.scale.category20c();
+//var oldzoom = 0;
+//var fill = d3.scale.category10();
+//var lineColor = d3.scale.category20c();
 
 jQuery(document).ready(function ($) {
 
@@ -160,34 +161,36 @@ jQuery(document).ready(function ($) {
 
 	zoomWidgetObj = new Dragdealer('zoomWidget',
 	{
-		horizontal: false,
-		vertical: true,
-		y: 0.255555555,
+		//horizontal: false,
+		//vertical: true,
+		//y: 0.255555555,
 
-		animationCallback: function (x, y) {
-			//if the value is the same as the intial value exit, to prevent a zoom even being called onload
-			if (y == 0.255555555) {
-				return false;
-			}
-			//prevent too muuch zooooom
-			if (y < 0.05) {
-				return false;
-			}
+		//animationCallback: function (x, y) {
+		//	//if the value is the same as the intial value exit, to prevent a zoom even being called onload
+		//	if (y == 0.255555555) {
+		//		return false;
+		//	}
+		//	//prevent too muuch zooooom
+		//	if (y < 0.05) {
+		//		return false;
+		//	}
 
-			//are we  zooming based on a call from interaction with the slider, or is this callback being triggerd by the mouse event updating the slider position.
-			if (zoomWidgetObjDoZoom == true) {
+		//	//are we  zooming based on a call from interaction with the slider, or is this callback being triggerd by the mouse event updating the slider position.
+		//	if (zoomWidgetObjDoZoom == true) {
 
-				y = y * 4;
+		//		y = y * 4;
 
-				//this is how it works now until i figure out how to handle this better.
-				//translate to the middle of the vis and apply the zoom level
-				vis.attr("transform", "translate(" + [(visWidth / 2) - (visWidth * y / 2), (visHeight / 2) - (visHeight * y / 2)] + ")" + " scale(" + y + ")");
-				//store the new data into the zoom object so it is ready for mouse events
-				zoom.translate([(visWidth / 2) - (visWidth * y / 2), (visHeight / 2) - (visHeight * y / 2)]).scale(y);
-			}
-		}
+		//		//this is how it works now until i figure out how to handle this better.
+		//		//translate to the middle of the vis and apply the zoom level
+		//		vis.attr("transform", "translate(" + [(visWidth / 2) - (visWidth * y / 2), (visHeight / 2) - (visHeight * y / 2)] + ")" + " scale(" + y + ")");
+		//		//store the new data into the zoom object so it is ready for mouse events
+		//		zoom.translate([(visWidth / 2) - (visWidth * y / 2), (visHeight / 2) - (visHeight * y / 2)]).scale(y);
+		//	}
+		//}
 	});
 })
+
+
 
 function initalizeNetwork() {
 
@@ -241,7 +244,7 @@ function initalizeNetwork() {
 		netwokrLinkLength = 500;
 		networkLargeNodeLimit = 20;
 		netwokrCharge = -400;
-		networkStopTick = false;
+		networkStopTick = true;
 		networkNodeDrag = true;
 
 		//if we have not yet built the dynamic list
@@ -278,6 +281,7 @@ function initalizeNetwork() {
 	force.linkStrength(function (d) { return linkStrength(d); });
 	force.distance(netwokrLinkLength);
 	force.charge(netwokrCharge);
+	
 
 	if (vis == null) {
 
@@ -464,198 +468,6 @@ function dataAnalysis() {
 	}
 }
 
-//	Builds the base nodes and links arrays 
-function buildBase() {
-
-	var allObjects = [];
-	var quickLookup = {};
-
-	//we need to establish the nodes and links
-	//we do it by making a string array and adding their ids to it, if it is unique in the string array then we can add the object to the node array
-
-	for (x in tripleObject) {	//each x here is a person
-
-		if (allObjects.indexOf(String(x)) == -1) {
-			allObjects.push(String(x));
-			baseNodes.push({ id: String(x) });
-		}
-
-		for (y in tripleObject[x]) {		//this level is the types of relations, mentions, knows, etc. each y here is a realtion bundle
-			for (z in tripleObject[x][y]) {	//here each z is a relation	
-
-				if (allObjects.indexOf(tripleObject[x][y][z].value) == -1) {
-
-					baseNodes.push({ id: tripleObject[x][y][z].value });
-					allObjects.push(tripleObject[x][y][z].value);
-
-					//we are adding props to this object to store their # of connections, depending on the order they may have already been added if they
-					//were added by the creatLink function, so in both places check for the propery and add it in if it is not yet set
-
-					if (!connectionCounter.hasOwnProperty(tripleObject[x][y][z].value)) {
-						connectionCounter[tripleObject[x][y][z].value] = 0;
-					}
-
-					if (!quickLookup.hasOwnProperty(tripleObject[x][y][z].value)) {
-						quickLookup[tripleObject[x][y][z].value] = -1;
-					}
-
-				}
-
-				createLink(String(x), tripleObject[x][y][z].value);
-			}
-		}
-	}
-
-	//asign the number of connections each node has  and add the label	
-	for (aNode in baseNodes) {
-
-		baseNodes[aNode].connections = connectionCounter[baseNodes[aNode].id];
-
-		if (baseNodes[aNode].connections > largestConnection) {
-			largestConnection = baseNodes[aNode].connections;
-		}
-
-		//build an human label
-		var label = $.trim(decodeURIComponent(baseNodes[aNode].id.split("/")[baseNodes[aNode].id.split("/").length - 1]).replace(/\_/g, ' '));
-
-		if (label.search(/\(/) != -1) {
-			label = label.substring(0, label.indexOf("("));
-		}
-
-		label = $.trim(label);
-		baseNodes[aNode].label = label;
-
-		//build a label lastname first
-		label = label.split(" ");
-
-		if (label[label.length - 1].toLowerCase() == 'jr.' || label[label.length - 1].toLowerCase() == 'jr' || label[label.length - 1].toLowerCase() == 'sr.' || label[label.length - 1].toLowerCase() == 'sr') {
-
-			var lastLabel = label[label.length - 2].replace(',', '') + ' ' + label[label.length - 1] + ',';
-
-			for (var i = 0; i <= label.length - 2; i++) {
-
-				lastLabel = lastLabel + ' ' + label[i].replace(',', '');
-			}
-		} else {
-
-			var lastLabel = label[label.length - 1] + ',';
-
-			for (var i = 0; i <= label.length - 2; i++) {
-
-				lastLabel = lastLabel + ' ' + label[i].replace(',', '');
-
-			}
-		}
-
-		baseNodes[aNode].labelLast = lastLabel;
-	}
-
-	//we are building the similarity index here, basiclly it loops through all of the people and compairs their connections with everyone else
-	//people who have similar connections have larger  simlarityIndex = the # of connections	 
-	for (var key in connectionIndex) {
-		var tmpAry = [];
-
-		if (connectionIndex[key].length > 1) {
-
-			for (var key2 in connectionIndex) {
-
-				if (key != key2) {
-
-					if (connectionIndex[key2].length > 1) {
-						var tmpCount = 0;
-
-						tmpCount = connectionIndex[key].filter(function (i) {
-							return !(connectionIndex[key2].indexOf(i) == -1);
-						}).length;
-
-						if (tmpCount > 1) {
-							tmpAry.push({ name: key2, count: tmpCount })
-
-							if (tmpCount > largestSimilarity) {
-								largestSimilarity = tmpCount;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		tmpAry.sort(function (a, b) {
-			return b.count - a.count;
-		});
-
-		simlarityIndex[key] = {};
-
-		for (x in tmpAry) {
-			simlarityIndex[key][tmpAry[x].name] = tmpAry[x].count;
-		}
-	}
-
-	function createLink(id1, id2) {
-		var obj1 = null, obj2 = null;
-
-		//in an effor to speed this lookup a little is to see if we have indexed the pos of the requested ids already, if so do not loop		
-		if (quickLookup[id1] > -1 && quickLookup[id2] > -1) {
-			obj1 = quickLookup[id1];
-			obj2 = quickLookup[id2];
-		} else {
-			//not yet in the quicklookup object, it will be added here	
-			for (q in baseNodes) {
-
-				if (baseNodes[q].id == id1) {
-					obj1 = q;
-				}
-
-				if (baseNodes[q].id == id2) {
-					obj2 = q;
-				}
-
-				if (obj1 != null && obj2 != null) {
-
-
-					quickLookup[id1] = obj1;
-					quickLookup[id2] = obj2;
-
-					break;
-				}
-			}
-		}
-
-		var customClass = "link_" + id1.split("/")[id1.split("/").length - 1].replace(cssSafe, '');
-		customClass = customClass + " link_" + id2.split("/")[id2.split("/").length - 1].replace(cssSafe, '');
-
-		baseLinks.push({ source: baseNodes[obj1], target: baseNodes[obj2], distance: 5, customClass: customClass });
-
-		//+1 the number of conenctions, of it is not yet in the object, add it at 1
-		if (!connectionCounter.hasOwnProperty(id1)) {
-			connectionCounter[id1] = 1;
-		} else {
-			connectionCounter[id1] = connectionCounter[id1] + 1;
-		}
-		if (!connectionCounter.hasOwnProperty(id2)) {
-			connectionCounter[id2] = 1;
-		} else {
-			connectionCounter[id2] = connectionCounter[id2] + 1;
-		}
-
-		//add this relation ship to the connectionIndex object
-		//has propery yet?
-		if (!connectionIndex.hasOwnProperty(id1)) {
-			connectionIndex[id1] = [];
-		}
-		if (!connectionIndex.hasOwnProperty(id2)) {
-			connectionIndex[id2] = [];
-		}
-
-		//does it have this relationship already?
-		if (connectionIndex[id1].indexOf(id2) == -1) {
-			connectionIndex[id1].push(id2);
-		}
-		if (connectionIndex[id2].indexOf(id1) == -1) {
-			connectionIndex[id2].push(id1);
-		}
-	}
-}
 
 function displayLabel(d) {
 
@@ -1180,6 +992,7 @@ function linkStrength(d) {
 		return (strength / (largestSimilarity * 2));
 	}
 }
+
 function showSpinner(text) {
 
 	$("#spinner").css("left", ($("#network").width() / 2) - 65 + "px");

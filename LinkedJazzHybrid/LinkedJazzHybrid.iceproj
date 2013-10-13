@@ -64,8 +64,18 @@
     <Resource Include="App_Resources\Android\drawable-nodpi\splashscreen.9.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\backgroundImages.css" />
     <Content Include="data\abstracts.txt" />
     <Content Include="data\triples.txt" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\4.jpg" />
+    <Content Include="images\5.jpg" />
+    <Content Include="images\6.jpg" />
+    <Content Include="images\7.jpg" />
+    <Content Include="images\8.jpg" />
+    <Content Include="images\9.jpg" />
     <Content Include="index.html" />
     <Content Include="css\index.css" />
     <Content Include="js\index.js" />
@@ -851,14 +861,14 @@
     </Content>
     <Content Include="Places-App.proj" />
     <Content Include="scripts\app.js" />
-    <Content Include="scripts\app\categories.js" />
+    <Content Include="scripts\app\artists.js" />
     <Content Include="scripts\app\extensions.js" />
-    <Content Include="scripts\app\http-request.js" />
-    <Content Include="scripts\app\places.js" />
+    <Content Include="scripts\app\data-request.js" />
+    <Content Include="scripts\app\networkData.js" />
     <Content Include="scripts\libs\rsvp.min.js" />
     <Content Include="styles\app.css" />
     <Content Include="views\artists-view.html" />
-    <Content Include="views\categories-view.html" />
+    <Content Include="views\test-view.html" />
     <Content Include="views\graph-view.html" />
     <Content Include="views\places-view.html" />
   </ItemGroup>
@@ -872,6 +882,7 @@
     <Folder Include="App_Resources\iOS\" />
     <Folder Include="css\" />
     <Folder Include="data\" />
+    <Folder Include="images\" />
     <Folder Include="img\" />
     <Folder Include="js\" />
     <Folder Include="kendo\" />

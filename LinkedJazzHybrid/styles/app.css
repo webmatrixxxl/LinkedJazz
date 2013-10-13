@@ -1,3 +1,9 @@
+html, body 
+{ 
+    height: 100%; 
+} 
+
+
 #category-info h1{
     text-align:center;
 }
