@@ -124,7 +124,726 @@
     <Content Include="kendo\styles\textures\stripe6.png" />
     <Content Include="kendo\styles\textures\transparency.png" />
     <Content Include="kendo\styles\textures\transtexture.png" />
-    <Content Include="Linked Jazz.htm" />
+    <Content Include="Linked Jazz.htm">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Abbey_Lincoln.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Alan_Dawson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Al_McKibbon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Andy_Kirk.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Artie_Shaw.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Art_Blakey.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Art_Farmer.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Art_Tatum.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Babs_Gonzales.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Barney_Bigard.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Bennie_Moten.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Benny_Carter.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Benny_Golson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Benny_Goodman.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Benny_Powell.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Benny_Waters.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ben_Webster.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Betty_Carter.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Billie_Holiday.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Billy_Eckstine.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Billy_Higgins.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Billy_Strayhorn.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Billy_Taylor_%28jazz_bassist%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Billy_Taylor_jazz_bassist.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Bill_Evans.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Bill_Johnson_%28reed_player%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Bill_Johnson_reed_player.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Bing_Crosby.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Bob_Haggart.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Buck_Clayton.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Buddy_DeFranco.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Buddy_Rich.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Buddy_Tate_%28musician%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Buddy_Tate_musician.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Budd_Johnson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Bud_Powell.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Buster_Williams.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Cab_Calloway.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Carmen_McRae.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Charles_Mingus.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Charlie_Barnet.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Charlie_Christian.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Charlie_Johnson_%28bandleader%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Charlie_Johnson_bandleader.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Charlie_Parker.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Charlie_Shavers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Chet_Baker.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Chick_Webb.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Chico_Hamilton.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Chu_Berry.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Clark_Terry.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Claude_Thornhill.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Clifford_Brown.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Coleman_Hawkins.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Count_Basie.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Cozy_Cole.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\d3.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Danny_Barker.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Dave_Brubeck.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\David_Baker_%28composer%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\David_Baker_composer.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Delfeayo_Marsalis.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Dexter_Gordon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Dinah_Washington.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Dizzy_Gillespie.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Doc_Cheatham.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Don_Byas.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Don_Redman.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\dragdealer.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Duke_Ellington.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Earl_Hines.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Eddie_Marshall.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ed_Shaughnessy.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ella_Fitzgerald.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Elvin_Jones.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Eric_Dolphy.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Erroll_Garner.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Erskine_Hawkins.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Etta_Jones.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Fats_Domino.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Fats_Navarro.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Fats_Waller.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Fletcher_Henderson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Frank_Foster_%28musician%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Frank_Foster_musician.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Frank_Sinatra.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Frank_Wess.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Freddie_Green.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\ga.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Gene_Krupa.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\George_Shearing.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\George_Wein.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Gerald_Wiggins.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Gerald_Wilson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Gigi_Gryce.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Gil_Evans.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Glenn_Miller.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Gunther_Schuller.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Hank_Jones.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Harold_Ousley.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Harry_James.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Helen_Humes.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Herbie_Hancock.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Herb_Jeffries.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Horace_Silver.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Hot_Lips_Page.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Illinois_Jacquet.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\J.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\J._J._Johnson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jackie_McLean.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jack_Teagarden.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\James_Moody_%28saxophonist%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\James_Moody_saxophonist.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\James_P.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\James_P._Johnson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jane_Jarvis.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jay_McShann.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jelly_Roll_Morton.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jerome_Richardson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jimmie_Lunceford.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jimmy_Cleveland.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jimmy_Dorsey.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jimmy_Jones_%28pianist%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jimmy_Jones_pianist.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jimmy_Scott.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Joe_King_Oliver.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Joe_Morello.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Joe_Newman_%28trumpeter%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Joe_Newman_trumpeter.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Joe_Williams_%28jazz_singer%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Joe_Williams_jazz_singer.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Johnny_Griffin.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Johnny_Hodges.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\John_Coltrane.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\John_Levy_%28musician%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\John_Levy_musician.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\John_Lewis_%28pianist%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\John_Lewis_pianist.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Jo_Jones.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\jquery.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\jquery.rdfquery.core.min-1.0.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Julius_Watkins.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Kaiser_Marshall.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Kenny_Burrell.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Kenny_Clarke.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Kenny_Dorham.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Kid_Ory.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Lawrence_Brown_%28musician%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Lawrence_Brown_musician.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Lee_Young.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Lena_Horne.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Lester_Young.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Lionel_Hampton.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\ljspinner.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\logo.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Louie_Bellson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Louis_Armstrong.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Louis_Jordan.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Lucky_Millinder.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Lucky_Thompson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Marian_McPartland.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Mary_Lou_Williams.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Max_Roach.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\McCoy_Tyner.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Melba_Liston.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Mel_Lewis.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\menu_clear.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\menu_dynamic.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\menu_fixed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\menu_free.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\menu_similar.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Miles_Davis.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Milt_Hinton.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Milt_Jackson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Nancy_Wilson_%28jazz_singer%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Nancy_Wilson_jazz_singer.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Nat_King_Cole.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Nat_Pierce.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Neal_Hefti.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\network.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\network.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Norman_Granz.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\no_image.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Oliver_Nelson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ornette_Coleman.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Oscar_Peterson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Oscar_Pettiford.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Paul_Gonsalves.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Percy_Heath.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Philly_Joe_Jones.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Phil_Wilson_%28trombonist%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Phil_Woods.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Quincy_Jones.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Randy_Weston.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ray_Brown,_Jr..png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ray_Brown_%28musician%29.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ray_Brown_Jr.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ray_Brown_musician.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ray_Drummond.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ray_Nance.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Red_Rodney.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Ron_Carter.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Roy_Eldridge.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Roy_Haynes.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Sammy_Davis,_Jr..png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Sammy_Davis_Jr.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Sam_Rivers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Sarah_Vaughan.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Shadow_Wilson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Sidney_Bechet.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Sid_Catlett.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Slam_Stewart.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Slide_Hampton.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Snooky_Young.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Sonny_Greer.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Sonny_Stitt.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Stan_Getz.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Stan_Kenton.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Stevie_Wonder.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Sweets_Edison.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Sy_Oliver.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Tadd_Dameron.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Teddy_Wilson.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Thad_Jones.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Thelonious_Monk.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Tiny_Bradshaw.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Tommy_Dorsey.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Tommy_Potter.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Tony_Bennett.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Tony_Williams.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Tricky_Sam_Nanton.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Wardell_Gray.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Wayne_Shorter.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Willie_The_Lion_Smith.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Woody_Herman.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Wynton_Kelly.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Wynton_Marsalis.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Yusef_Lateef.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Linked Jazz_files\Zutty_Singleton.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Places-App.proj" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\app\categories.js" />
@@ -156,6 +875,7 @@
     <Folder Include="kendo\styles\default\" />
     <Folder Include="kendo\styles\images\" />
     <Folder Include="kendo\styles\textures\" />
+    <Folder Include="Linked Jazz_files\" />
     <Folder Include="Plugins\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\app\" />

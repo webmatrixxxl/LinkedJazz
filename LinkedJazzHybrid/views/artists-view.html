@@ -1,7 +1,8 @@
-﻿
-
-    <link href="styles/app.css" rel="stylesheet" />
-    <script src="http://cdn.kendostatic.com/2013.1.319/js/kendo.all.min.js"></script>
+﻿<script>
+    dynamicPeople = [];
+</script>
+<link href="styles/app.css" rel="stylesheet" />
+<script src="http://cdn.kendostatic.com/2013.1.319/js/kendo.all.min.js"></script>
 
 
 <div data-role="view" data-layout="main-layout" data-init="mobileListViewFiltering" data-title="Artists">
@@ -34,7 +35,7 @@
                 dir: "asc"
             },
             group: "letter",
-         
+
 
 
             pageSize: 50
@@ -51,11 +52,15 @@
         });
     }
 
-    
     function loadArtistInGraph(e) {
         app.kendo.navigate("views/graph-view.html#graph-view");
-
         dynamicPeople = [];
+
+        if (visMode != "dynamic") {
+
+            visMode = "dynamic";
+            changeVisMode(visMode);
+        }
 
         if (dynamicPeople.indexOf($(this).data("id")) == -1) {
             $("#dynamicClear").fadeIn(5000);
@@ -63,10 +68,9 @@
             usePerson = e.id;
             dynamicPeople.push(usePerson);
 
-          filter();
-        }
+            filter();
 
-        
+        }
     }
 </script>
 

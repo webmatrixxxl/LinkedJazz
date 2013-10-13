@@ -1,16 +1,15 @@
 <script src="Linked%20Jazz_files/ga.js" async="" type="text/javascript"></script>
 <script src="Linked%20Jazz_files/dragdealer.js" type="text/javascript"></script>
 <script src="Linked%20Jazz_files/jquery.js" type="text/javascript"></script>
+    <script src="Linked%20Jazz_files/jquery.rdfquery.core.min-1.0.js" type="text/javascript"></script>
+
 <script src="Linked%20Jazz_files/network.js" type="text/javascript"></script>
 
 
 <div data-role="view" data-layout="main-layout" data-title="Artist Graph">
     <link rel="stylesheet" href="Linked%20Jazz_files/network.css">
 
-
-
     <div id="network" style="background-color: rgb(255, 255, 255); display: block; visibility: visible;">
-
 
         <div style="cursor: pointer; position: absolute; right: 5px; height: 65px; width: 65px; top: 0px; opacity: 0.15;" id="menu_dynamic">
             <img alt="Dynamic mode allows you to add individuals and view their shared connections." title="Dynamic mode allows you to add individuals and view their shared connections." src="Linked%20Jazz_files/menu_dynamic.png">
@@ -35,9 +34,7 @@
             </div>
         </div>
 
-
-
-<!--        <div style="display: none;" id="dynamicSearchHolder">
+        <!--        <div style="display: none;" id="dynamicSearchHolder">
             <input id="dynamicSearchInput" placeholder="Name Filter" type="text">
             <div id="dynamicSearchClear" title="Clear name filter text">×</div>
         </div>
@@ -68,6 +65,5 @@
     </div>
     <div style="left: 0px;" id="video"></div>
 </div>
-
 
 <script src="http://cdn.kendostatic.com/2013.1.319/js/kendo.all.min.js"></script>
