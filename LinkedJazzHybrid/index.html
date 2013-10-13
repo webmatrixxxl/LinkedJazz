@@ -12,7 +12,7 @@
     <link href="http://cdn.kendostatic.com/2013.1.319/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
 
     <link href="styles/app.css" rel="stylesheet" />
-<script src="Linked%20Jazz_files/jquery.js" type="text/javascript"></script>
+    <script src="Linked%20Jazz_files/jquery.js" type="text/javascript"></script>
     <script src="http://cdn.kendostatic.com/2013.1.319/js/kendo.all.min.js"></script>
 
 
@@ -32,8 +32,9 @@
 
 
 
-
     <script>
+
+
 
 
         if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect) {
@@ -60,7 +61,8 @@
         var largestSimilarity = 0;		//holds the max number of similar connections any two nodes share in the network
         var cssSafe = new RegExp(/%|\(|\)|\.|\,/g);	//the regex to remove non css viable chars
         var vis = null					//the visualization
-
+        var zoom = null;				//the d3.js zoom object
+        var force = null;				//the d3 force object
         jQuery(document).ready(function ($) {
 
             //give the UI some breathing room, a chance to render
@@ -366,26 +368,20 @@
                 if (connectionIndex[id2].indexOf(id1) == -1) {
                     connectionIndex[id2].push(id1);
                 }
-
             }
         }
 
 
         function filter(clear) {
 
-
-
             if (typeof clear == 'undefined') { clear = true; }
 
             //are we wiping the nodes out or just adding?
-
-
             if (clear) {
 
                 $("#network").css("visibility", "hidden");
                 vis.selectAll("g.node").remove();
                 vis.selectAll("line.link").remove();
-
 
                 nodes = [];
                 links = [];
@@ -394,12 +390,8 @@
                 restart();
             }
 
-
             var workingNodes = [];
             var workingLinks = [];
-
-
-
             nodesRemove = {};
 
             if (visMode == 'person') {
@@ -411,8 +403,6 @@
                 }
 
             } else if (visMode == 'dynamic') {
-
-
 
                 var connected = [];
                 var connetedCounteed = {};
@@ -435,7 +425,6 @@
                     } else {
                         connetedCounteed[connected[x]] = 1;
                     }
-
                 }
 
                 console.log(connetedCounteed);
@@ -454,8 +443,7 @@
                                 nodesRemove[baseNodes[x].id] = true;
                             }
                         }
-                    }
-                    else {
+                    } else {
                         //no...but are they the person themselfs?
                         if (dynamicPeople.indexOf(baseNodes[x].id) == -1) {
                             //no, remove them
@@ -463,12 +451,13 @@
                         }
                     }
                 }
-            }
-            else {
+            } else {
 
                 //filter out people with too little number of conenctions. we use the connectionCounter from the buildBase function		
                 for (var key in connectionCounter) {
+
                     if (connectionCounter.hasOwnProperty(key)) {
+
                         if (connectionCounter[key] < networkMinEdges) {
                             nodesRemove[key] = true;
                         }
@@ -478,12 +467,14 @@
 
             //now build the working arrays of the things we want to keep, 
             for (aNode in baseNodes) {
+
                 if (!nodesRemove.hasOwnProperty(baseNodes[aNode].id)) {
                     workingNodes.push(baseNodes[aNode]);
                 }
             }
 
             for (aLink in baseLinks) {
+
                 if (nodesRemove.hasOwnProperty(baseLinks[aLink].source.id) == false && nodesRemove.hasOwnProperty(baseLinks[aLink].target.id) == false) {
                     workingLinks.push(baseLinks[aLink]);
                 }
@@ -492,6 +483,7 @@
             if (visMode == 'dynamic') {
                 //for the dynmaic mode, we don't want a whole mess of edges cofusing things, since we are just intrested in how the added people are connected
                 var temp = [];
+
                 for (aLink in workingLinks) {
                     if (dynamicPeople.indexOf(workingLinks[aLink].source.id) != -1 || dynamicPeople.indexOf(workingLinks[aLink].target.id) != -1) {
                         temp.push(workingLinks[aLink]);
@@ -540,6 +532,7 @@
             for (aNode in workingNodes) {
                 nodes.push(workingNodes[aNode]);
             }
+
             for (aLink in workingLinks) {
                 links.push(workingLinks[aLink]);
             }
@@ -569,7 +562,6 @@
             */
             restart();
         }
-
 
         function restart() {
 
@@ -601,9 +593,6 @@
               .attr("x2", function (d) { return d.target.x; })
               .attr("y2", function (d) { return d.target.y; });
 
-
-
-
             var node = vis.selectAll("g.node")
               .data(nodes);
 
@@ -612,7 +601,6 @@
               .style("cursor", "pointer")
               .attr("id", function (d) { return "node_" + d.id.split("/")[d.id.split("/").length - 1].replace(cssSafe, '') })
               .on("mouseover", function (d) {
-
 
                   //showPopupTimer = setTimeout(function(){
                   //clearTimeout(showPopupTimer);
@@ -624,7 +612,6 @@
 
               }).on("mouseout", function (d) {
 
-
                   currentNode = d;
                   hidePopupTimer = setTimeout(hidePopup, 150);
 
@@ -632,27 +619,18 @@
 
                   hidePopup();
 
-
                   $("#network").fadeOut('fast',
                       function () {
 
-
                           usePerson = d.id;
                           changeVisMode("person");
-
                       }
                   );
-
               });
 
             if (networkNodeDrag) {
                 nodeEnter.call(force.drag);
             }
-
-
-
-
-
 
             nodeEnter.append("circle")
                 .attr("id", function (d) { return "backgroundCircle_" + d.id.split("/")[d.id.split("/").length - 1].replace(cssSafe, ''); })
@@ -664,23 +642,18 @@
                 .style("stroke", function (d, i) { return returnNodeColor(d); })
                 .style("stroke-width", function (d) { return returnNodeStrokeWidth(d); });
 
-
-
-
             nodeEnter.append("svg:image")
                   .attr("id", function (d) { return "imageCircle_" + d.id.split("/")[d.id.split("/").length - 1].replace(cssSafe, '') })
                   .attr("class", "imageCircle")
                   .attr("xlink:href", function (d) {
 
                       var useId = $.trim(decodeURI(d.id).split("\/")[decodeURI(d.id).split("\/").length - 1]);
+
                       if (fileNames.indexOf(useId + '.png') == -1) {
                           return "img/menu/no_image.png";
                       } else {
                           return "img/" + useId + '.png';
                       }
-
-
-
                   })
                   .attr("x", function (d) { return (returnNodeSize(d) * -1); })
                   .attr("y", function (d) { return (returnNodeSize(d) * -1); })
@@ -699,10 +672,7 @@
 
                .text(function (d) { return d.label; });
 
-
             force.start();
-
-
 
             //controls the movement of the nodes	
             force.on("tick", function (e) {
@@ -719,7 +689,6 @@
                             }
                         }
                     }
-
                 }
 
                 if (visMode == "person") {
@@ -727,12 +696,10 @@
                     nodes[usePersonIndex].y = visHeight / 2;
                 }
 
-
                 if (networkStopTick) {
 
                     if (e.alpha <= .02) {
                         hideSpinner();
-
 
                         vis.selectAll("line.link")
                           .attr("x1", function (d) { return d.source.x; })
@@ -740,30 +707,22 @@
                           .attr("x2", function (d) { return d.target.x; })
                           .attr("y2", function (d) { return d.target.y; });
 
-
                         vis.selectAll("g.node").attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
-
 
                         if ($("#network").css("visibility") != "visible") {
                             $("#network").css("visibility", "visible");
                             $("#network").fadeIn();
-
                             $("#zoomWidget").css("visibility", "visible");
                         }
 
                         if (networkStopTick) {
                             force.stop();
                         }
-
-
                     }
-
 
                 } else {
 
                     hideSpinner();
-
-
 
                     //in this mode (don't stop tick) is used by the person and dynamic mode, we ewant to illustrat the flow of relationships, so 
                     //do the math needed to draw the markers on the outside of the nodes.
@@ -774,8 +733,6 @@
                       .attr("x2", function (d) { return pointsBetween(d.source, d.target)[1][0]; })
                       .attr("y2", function (d) { return pointsBetween(d.source, d.target)[1][1]; });
 
-
-
                     vis.selectAll("g.node").attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
 
                     if ($("#network").css("visibility") != "visible") {
@@ -783,25 +740,66 @@
                         $("#network").fadeIn();
                         $("#zoomWidget").css("visibility", "visible");
                     }
-
-
                 }
-
-
-
-
-
             });
-
         }
 
     </script>
 
 </head>
 <body>
+
     <div id="home-view" data-id="home-view" data-role="view"
         data-layout="main-layout" data-title="Home">
-        This is Sparta!
+        
+    <script>
+
+        // Wait for Cordova to load
+        // 
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Cordova is loaded and it is now safe to make calls Cordova methods
+        //
+        function onDeviceReady() {
+            checkConnection();
+        }
+
+
+        function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN] = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI] = 'WiFi connection';
+            states[Connection.CELL_2G] = 'Cell 2G connection';
+            states[Connection.CELL_3G] = 'Cell 3G connection';
+            states[Connection.CELL_4G] = 'Cell 4G connection';
+            states[Connection.NONE] = 'No network connection';
+
+            alert('Connection type: ' + states[networkState]);
+
+            // capture callback
+            var captureSuccess = function (mediaFiles) {
+                var i, path, len;
+                for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                    path = mediaFiles[i].fullPath;
+                    // do something interesting with the file
+                }
+            };
+
+            // capture error callback
+            var captureError = function (error) {
+                navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+            };
+
+            // start image capture
+            navigator.device.capture.captureImage(captureSuccess, captureError, { limit: 2 });
+
+        }
+
+
+    </script>
        
     </div>
 
@@ -824,6 +822,6 @@
         </footer>
     </div>
 
-    
+
 </body>
 </html>

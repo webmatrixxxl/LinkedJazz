@@ -20,10 +20,10 @@ var trans = [0, 0];
 var scale = 1;
 //var dynamicPeople = [];			//holds who is added in the dynamic mode
 
-var zoom = null;				//the d3.js zoom object
+//var zoom = null;				//the d3.js zoom object
 //var baseNodes = [];				//stores the base (all) of the nodes and
 //var baseLinks = [];				// links
-var force = null;				//the d3 force object
+//var force = null;				//the d3 force object
 //var vis = null					//the visualization
 var visWidth = 0;			//width and height of the network canvas, in px
 var visHeight = 0;
