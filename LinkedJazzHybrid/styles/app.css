@@ -1,9 +1,19 @@
-html, body 
-{ 
-    height: 100%; 
-} 
+html, body {
+    height: 100%;
+}
 
 
-#category-info h1{
-    text-align:center;
+#category-info h1 {
+    text-align: center;
+}
+
+.main-content {
+
+    padding:20px;
+}
+#main-container {
+    position:relative;
+    background-color: rgba(255, 255, 255,0.5);
+    height:100%;
+    width:100%;
 }

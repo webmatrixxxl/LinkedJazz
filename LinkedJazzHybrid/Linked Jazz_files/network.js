@@ -244,7 +244,7 @@ function initalizeNetwork() {
 		netwokrLinkLength = 500;
 		networkLargeNodeLimit = 20;
 		netwokrCharge = -400;
-		networkStopTick = true;
+		networkStopTick = false;
 		networkNodeDrag = true;
 
 		//if we have not yet built the dynamic list
